@@ -1,0 +1,41 @@
+.header-form {
+  width: 380px;
+  margin-left: auto;
+  margin-right: auto;
+
+  padding-top: 40px;
+}
+
+.form-label {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form-text {
+  font-size: 20px;
+
+  // @media screen and (min-width: 320px) {
+  //   font-size: 17px;
+  // }
+}
+.form-input {
+  width: 200px;
+  height: 30px;
+}
+
+.btn-form {
+  height: 30px;
+  width: 80px;
+  border-radius: 9px;
+  border-color: transparent;
+  background-color: var(--secondary-txt-cl);
+  color: var(--accent-txt-cl);
+}
+
+.loader {
+  width: 55px;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  color: var(--title-txt-cl);
+}

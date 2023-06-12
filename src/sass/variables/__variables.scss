@@ -1,0 +1,37 @@
+:root {
+  /*основные шрифты*/
+  --main-font: 'Roboto', sans-serif;
+  --logo-font: 'Raleway', sans-serif;
+
+  /*светлая тема текста*/
+  --accent-txt-cl: #ffffff;
+  --primary-txt-cl: #757575;
+  --footer-txt-cl: rgba(255, 255, 255, 0.6);
+
+  /*темная тема текста*/
+  --title-txt-cl: #212121;
+  --secondary-txt-cl: #2196f3;
+
+  /*темная тема фона*/
+  // --main-bg-cl: #2f303a;
+  // --section-bg-cl: #f5f4fa;
+
+  /*цвет border*/
+  --top-border-cl: #ececec;
+  --border-cl: #eeeeee;
+
+  /*цвет иконок*/
+  --icon-color: #afb1b8;
+  // --footer-bg-icon: rgba(255, 255, 255, 0.1);
+  // --about-element-cl: rgba(47, 48, 58, 0.8);
+
+  /*цвет овэрлэй*/
+  // --overlay-color: rgba(33, 150, 243, 0.9);
+
+  /*цвет бэкдроп*/
+  // --backdrop-cl: rgba(0, 0, 0, 0.2);
+
+  /*переходы*/
+  // --time-change: 250ms;
+  // --time-steps: cubic-bezier(0.4, 0, 0.2, 1)
+}

@@ -1,0 +1,178 @@
+@charset "UTF-8";
+@import '~node_modules/modern-normalize/modern-normalize.css';
+h1,
+h2,
+h3,
+h4,
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+h1:last-child,
+h2:last-child,
+h3:last-child,
+h4:last-child,
+p {
+  margin-bottom: 0;
+}
+
+/*сброс списков*/
+ul {
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.body {
+  font-family: var(--main-font);
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: 0.03em;
+  background-color: var(--accent-txt-cl);
+  color: var(--primary-txt-cl);
+}
+
+.section {
+  padding: 40px 0px;
+  background-image: url("../images/York.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: scroll;
+}
+@media screen and (min-width: 320px) {
+  .section {
+    padding: 30px 0px;
+  }
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+:root {
+  /*основные шрифты*/
+  --main-font: "Roboto", sans-serif;
+  --logo-font: "Raleway", sans-serif;
+  /*светлая тема текста*/
+  --accent-txt-cl: #ffffff;
+  --primary-txt-cl: #757575;
+  --footer-txt-cl: rgba(255, 255, 255, 0.6);
+  /*темная тема текста*/
+  --title-txt-cl: #212121;
+  --secondary-txt-cl: #2196f3;
+  /*темная тема фона*/
+  /*цвет border*/
+  --top-border-cl: #ececec;
+  --border-cl: #eeeeee;
+  /*цвет иконок*/
+  --icon-color: #afb1b8;
+  /*цвет овэрлэй*/
+  /*цвет бэкдроп*/
+  /*переходы*/
+}
+
+.container {
+  width: 1180px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header {
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  border-bottom: 1px solid var(--top-border-cl);
+  background-color: var(--accent-txt-cl);
+}
+
+.header-form {
+  width: 380px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 40px;
+}
+
+.form-label {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form-text {
+  font-size: 20px;
+}
+
+.form-input {
+  width: 200px;
+  height: 30px;
+}
+
+.btn-form {
+  height: 30px;
+  width: 80px;
+  border-radius: 9px;
+  border-color: transparent;
+  background-color: var(--secondary-txt-cl);
+  color: var(--accent-txt-cl);
+}
+
+.loader {
+  width: 55px;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  color: var(--title-txt-cl);
+}
+
+.todo-list {
+  width: 370px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  width: 360px;
+}
+
+.todo-input {
+  margin-right: 10px;
+}
+
+.todo-deskr {
+  width: 300px;
+  height: 30px;
+  margin-right: 10px;
+  font-size: 17px;
+  border: 1px solid var(--icon-color);
+  text-align: left;
+  text-indent: 10px;
+  background-color: aliceblue;
+}
+
+.button-delete {
+  padding: 5 20;
+  border-color: var(--icon-color);
+  border-radius: 7px;
+}/*# sourceMappingURL=index.css.map */
