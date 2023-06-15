@@ -6,8 +6,45 @@
   left: 0;
 
   width: 100%;
-  height: 120px;
+  height: 80px;
 
   border-bottom: 1px solid var(--top-border-cl);
   background-color: var(--accent-txt-cl);
+}
+.header-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--secondary-txt-cl);
+}
+
+.logo-accent {
+  color: var(--title-txt-cl);
+  font-size: 25px;
+}
+
+.header-list {
+  display: flex;
+
+  &__item:not(:last-child) {
+    margin-right: 15px;
+  }
+}
+
+.header-container {
+  padding-top: 15px;
+}
+
+.header-list__link {
+  padding: 7px;
+  color: var(--primary-txt-cl);
+}
+
+.header-list__link--current {
+  border-bottom: 2px solid var(--secondary-txt-cl);
 }

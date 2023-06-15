@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ToDo List</title>
+    <title>Home ToDo</title>
     <!--основные шрифты-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,7 +18,53 @@
   </head>
   <body class="body">
     <!-- ❗️❗️❗️ Add partials like so for every page -->
-    <include src="./partials/header.html"></include>
-    <include src="./partials/section-list.html"></include>
+    <!-- <include src="./partials/header.html"></include>
+    <include src="./partials/section-list.html"></include> -->
+    <header class="header" tabindex="14">
+      <div class="container header-container">
+        <nav class="header-nav">
+          <a href="./index.html" class="logo link">
+            ToDo <span class="logo-accent">List</span>
+          </a>
+          <ul class="header-list">
+            <li class="header-list__item">
+              <a
+                href="../src/index.html"
+                class="header-list__link header-list__link--current link"
+                >Home</a
+              >
+            </li>
+            <li class="header-list__item">
+              <a href="./pages/todo.html" class="header-list__link link"
+                >ToDos</a
+              >
+            </li>
+            <li class="header-list__item">
+              <a href="./pages/widgets.html" class="header-list__link link"
+                >Widgets</a
+              >
+            </li>
+            <li class="header-list__item">
+              <a href="./pages/login.html" class="header-list__link link"
+                >Login</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <section class="section home-section">
+        <div class="container">
+          <h1 class="home-title">Hello!! Your ToDo List</h1>
+          <p class="home-descr">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum
+            excepturi soluta amet itaque earum quo hic doloremque magni neque
+            labore! Eius tempora laborum a esse officia aliquam consectetur,
+            animi dicta.
+          </p>
+        </div>
+      </section>
+    </main>
   </body>
 </html>

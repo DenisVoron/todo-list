@@ -13,12 +13,13 @@
   --secondary-txt-cl: #2196f3;
 
   /*темная тема фона*/
-  // --main-bg-cl: #2f303a;
-  // --section-bg-cl: #f5f4fa;
+  --main-bg-cl: #2f303a;
+  --section-bg-cl: #f5f4fa;
 
   /*цвет border*/
   --top-border-cl: #ececec;
   --border-cl: #eeeeee;
+  --border-cl-red: rgb(255, 0, 0);
 
   /*цвет иконок*/
   --icon-color: #afb1b8;
@@ -29,7 +30,7 @@
   // --overlay-color: rgba(33, 150, 243, 0.9);
 
   /*цвет бэкдроп*/
-  // --backdrop-cl: rgba(0, 0, 0, 0.2);
+  --backdrop-cl: rgba(0, 0, 0, 0.2);
 
   /*переходы*/
   // --time-change: 250ms;
