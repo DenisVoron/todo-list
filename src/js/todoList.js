@@ -4,35 +4,50 @@ import items from './mockDate.js';
 // const items = mockDate;
 
 const refs = {
+    formTodo: document.querySelector('.form-todo'),
     todoList: document.querySelector('.todo-list'),
     todoInput: document.querySelector('.form-input'),
-    todoAddBtn: document.querySelector('.btn-form'),
+    todoDeleteBtn: document.querySelector('.todo-list'),
 }
 
-console.log(refs.todoInput);
+
 const renderToDo = (items) => {
     const list = items.map(todoItemTemplate).join('');
 
     refs.todoList.innerHTML = '';
     refs.todoList.insertAdjacentHTML('afterbegin', list);
-    // return items.map(todoItemTemplate).join('');
 };
 
 renderToDo(items);
 
-const onBtnAddTodoClick = e => {
-    e.preventDefault();
+const addItems = (text) => {
 
     const newTodo = {
         id: '10',
-        text: 'loren',
+        text,
         isDone: false,
     }
-    // console.log('asddsdadd');
 
-    // items.push(newTodo);
+    items.unshift(newTodo);
 
-    // renderToDo(items);
+    renderToDo(items);
 }
 
-refs.todoAddBtn.addEventListener('submit', onBtnAddTodoClick)
+const onBtnAddTodoClick = e => {
+    e.preventDefault();
+    const { text } = e.currentTarget;
+    addItems(text.value);
+    text.value = '';
+}
+
+refs.formTodo.addEventListener('submit', onBtnAddTodoClick)
+
+// function onClickBtnDeleteTodo(e) {
+//     console.log(e.currentTarget);
+//     console.log(e.target)
+//     // return e.target;
+// }
+
+
+// refs.todoDeleteBtn.addEventListener('click', onClickBtnDeleteTodo);
+

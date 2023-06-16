@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="../sass/index.scss" />
     <script src="../js/header.js" type="module"></script>
     <script src="../js/todoList.js" type="module"></script>
-  </head class="todo-timer__text">
+  </head>
   <body class="body">
     <header class="header" tabindex="14">
       <div class="container header-container">
@@ -51,12 +51,12 @@
     <main>
       <section class="section form-container">
         <div class="container">
-          <form action="" class="header-form">
-            <label for="" class="form-label">
+          <form class="form-todo">
+            <label class="form-label">
               <span class="form-text">Enter text</span>
-              <input type="text" name="data" class="form-input" />
+              <input type="text" name="text" class="form-input" />
             </label>
-            <button class="btn-form" type="submit">Add Todo</button>
+            <button class="btn-form pointer" type="submit">Add Todo</button>
           </form>
           <p class="loader">Loading...</p>
         </div>
@@ -64,19 +64,19 @@
       <section class="section">
         <div class="container">
           <div class="filter-wrapper">
-            <label for="size">Sort by</label>
+            <label>Sort by</label>
             <select class="filter-select" id="sort" name="sort">
-              <option value="name-asc">Name a-z (asc)</option>
-              <option value="name-desc">Name z-a (desc)</option>
-              <option value="done-first" selected>Done first (asc)</option>
-              <option value="done-last">Done last (desc)</option>
-              <option value="date-asc">Date 0-9 (asc)</option>
-              <option value="date-desc">Date 9-0 (desc)</option>
+              <option value="name-asc">name a-z (asc)</option>
+              <option value="name-desc">name z-a (desc)</option>
+              <option value="done-first">done first (asc)</option>
+              <option value="done-last">done last (desc)</option>
+              <option value="date-asc">date 0-9 (asc)</option>
+              <option value="date-desc">date 9-0 (desc)</option>
             </select>
 
-            <label for="">
+            <label for="filter-todo">
               Filter
-              <input class="filter-input" type="text" />
+              <input class="filter-input" id="filter-todo" type="text" />
             </label>
           </div>
           <ul class="todo-list"></ul>
