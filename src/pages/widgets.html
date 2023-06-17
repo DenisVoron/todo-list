@@ -14,6 +14,7 @@
 
     <link rel="stylesheet" href="../sass/index.scss" />
     <script src="../js/header.js" type="module"></script>
+    <script src="../js/widgets.js" type="module"></script>
   </head>
   <body class="body">
     <header class="header" tabindex="14">
@@ -51,21 +52,31 @@
       <section class="section">
         <div class="container">
           <div class="widgets-list">
-            <fieldset>
+            <fieldset class="widgets-fieldset widgets-counter">
               <legend>Counter</legend>
-              <button class="btn-counter" type="button">-</button>
-              <span>1</span>
-              <button class="btn-counter" type="button">+</button>
+              <button
+                class="button js-btn-counter__decrease pointer"
+                type="button"
+              >
+                -
+              </button>
+              <span class="js-number-field-counter">0</span>
+              <button
+                class="button js-btn-counter__increase pointer"
+                type="button"
+              >
+                +
+              </button>
             </fieldset>
-            <fieldset>
+            <fieldset class="widgets-fieldset">
               <legend>Clock</legend>
               <span>2023:06:16 02:02:02</span>
-              <button class="button danger">stop</button>
+              <button class="button danger pointer">stop</button>
             </fieldset>
-            <fieldset>
+            <fieldset class="widgets-fieldset">
               <legend>Timer</legend>
               <span>12</span>
-              <button class="button success">stop</button>
+              <button class="button success pointer">start</button>
             </fieldset>
           </div>
         </div>

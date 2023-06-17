@@ -1,0 +1,16 @@
+.button {
+  width: 50px;
+  height: 25px;
+  border: 1px solid var(--top-border-cl);
+  border-radius: 7px;
+}
+
+.danger {
+  margin-left: auto;
+  background-color: var(--border-cl-red);
+}
+
+.success {
+  margin-left: auto;
+  background-color: chartreuse;
+}
