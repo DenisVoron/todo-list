@@ -40,14 +40,8 @@ const onBtnAddTodoClick = e => {
     text.value = '';
 }
 
-refs.formTodo.addEventListener('submit', onBtnAddTodoClick)
+refs.formTodo.addEventListener('submit', onBtnAddTodoClick);
 
-// function onClickBtnDeleteTodo(e) {
-//     console.log(e.currentTarget);
-//     console.log(e.target)
-//     // return e.target;
-// }
+export default renderToDo;
 
-
-// refs.todoDeleteBtn.addEventListener('click', onClickBtnDeleteTodo);
 

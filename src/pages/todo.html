@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="../sass/index.scss" />
     <script src="../js/header.js" type="module"></script>
     <script src="../js/todoList.js" type="module"></script>
+    <script src="../js/todoListFilter.js" type="module"></script>
   </head>
   <body class="body">
     <header class="header" tabindex="14">
@@ -76,7 +77,12 @@
 
             <label for="filter-todo">
               Filter
-              <input class="filter-input" id="filter-todo" type="text" />
+              <input
+                class="filter-input js-filter-input"
+                id="filter-todo"
+                type="text"
+                name="query"
+              />
             </label>
           </div>
           <ul class="todo-list"></ul>
