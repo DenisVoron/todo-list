@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from 'uuid';
 import todoItemTemplate from "./todoItemTemplate.js";
 import items from './mockDate.js';
 
@@ -23,9 +24,10 @@ renderToDo(items);
 const addItems = (text) => {
 
     const newTodo = {
-        id: '10',
+        id: uuidv4(),
         text,
         isDone: false,
+        date: Date.now()
     }
 
     items.unshift(newTodo);
