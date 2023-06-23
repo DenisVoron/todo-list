@@ -11,11 +11,16 @@
       href="https://fonts.googleapis.com/css2?family=Quintessential&family=Raleway:wght@700&family=Roboto:wght@400;500;700;900&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="/node_modules/basiclightbox/dist/basicLightbox.min.css"
+    />
 
     <link rel="stylesheet" href="../sass/index.scss" />
     <script src="../js/header.js" type="module"></script>
     <script src="../js/todoList.js" type="module"></script>
     <script src="../js/todoListFilter.js" type="module"></script>
+    <script src="../js/modalAddTodo.js" type="module"></script>
   </head>
   <body class="body">
     <header class="header" tabindex="14">
@@ -52,13 +57,14 @@
     <main>
       <section class="section form-container">
         <div class="container">
-          <form class="form-todo">
+          <!-- <form class="form-todo">
             <label class="form-label">
               <span class="form-text">Enter text</span>
               <input type="text" name="text" class="form-input" />
             </label>
             <button class="btn-form pointer" type="submit">Add Todo</button>
-          </form>
+          </form> -->
+          <button class="btn-add-todo" type="button">Add ToDo</button>
           <p class="loader">Loading...</p>
         </div>
       </section>
