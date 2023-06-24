@@ -9,7 +9,7 @@ const instance = basicLightbox.create(`
             </label>
             <button class="btn-form pointer" type="submit">Add Todo</button>
           </form>
-        <a>Close</a>
+        <a></a>
     </div>
 `, {
     onShow: (instance) => {
@@ -17,13 +17,11 @@ const instance = basicLightbox.create(`
     },
 })
 
-const elem = instance.element();
+// const elem = instance.element();
 
-console.log(instance)
-
-const elemForm = elem.querySelector('.form-todo');
-const refBtnOpenModal = document.querySelector('.btn-add-todo');
+const refBtnOpenModal = document.querySelector('.btn-add');
 
 refBtnOpenModal.addEventListener('click', () => instance.show());
 
-export default elemForm;
+
+export default instance;

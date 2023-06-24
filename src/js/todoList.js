@@ -1,10 +1,11 @@
 import { v4 as uuidv4 } from 'uuid';
 import todoItemTemplate from "./todoItemTemplate.js";
 import mockDate from './mockDate.js';
-import refForm from '../js/modalAddTodo.js';
+import instance from './modalAddTodo.js';
 
 let items = mockDate;
 
+const refForm = instance.element().querySelector('.form-todo');
 const refs = {
     todoList: document.querySelector('.todo-list'),
     todoInput: document.querySelector('.form-input'),
@@ -29,7 +30,7 @@ const addItems = (text) => {
     }
 
     items.unshift(newTodo);
-
+    instance.close();
     renderToDo(items);
 }
 

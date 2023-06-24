@@ -1,0 +1,15 @@
+.btn-add {
+  display: block;
+  width: 300px;
+  height: 50px;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  border: 2px solid var(--top-border-cl);
+  border-radius: 50px;
+  color: var(--accent-txt-cl);
+  background-color: var(--secondary-txt-cl);
+
+  box-shadow: 3px 18px 19px -4px rgba(145, 138, 145, 0.65);
+}
