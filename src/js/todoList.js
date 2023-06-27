@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
-import todoItemTemplate from "./todoItemTemplate.js";
+import todoItemTemplate from "./template/todoItemTemplate.js";
 import mockDate from './mockDate.js';
 import instance from './modalAddTodo.js';
 

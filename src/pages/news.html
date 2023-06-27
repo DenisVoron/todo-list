@@ -3,18 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Widgets</title>
-    <!--основные шрифты-->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Quintessential&family=Raleway:wght@700&family=Roboto:wght@400;500;700;900&display=swap"
-      rel="stylesheet"
-    />
+    <title>News</title>
 
     <link rel="stylesheet" href="../sass/index.scss" />
     <script src="../js/header.js" type="module"></script>
-    <script src="../js/widgets.js" type="module"></script>
+    <script src="../js/news.js" type="module"></script>
   </head>
   <body class="body">
     <header class="header" tabindex="14">
@@ -33,12 +26,14 @@
               >
             </li>
             <li class="header-list__item">
-              <a href="./news.html" class="header-list__link link">News</a>
+              <a
+                href="./news.html"
+                class="header-list__link header-list__link--current link"
+                >News</a
+              >
             </li>
             <li class="header-list__item">
-              <a
-                href="../pages/widgets.html"
-                class="header-list__link header-list__link--current link"
+              <a href="../pages/widgets.html" class="header-list__link link"
                 >Widgets</a
               >
             </li>
@@ -52,20 +47,26 @@
       </div>
     </header>
     <main>
+      <section class="section form-section">
+        <div class="container">
+          <label for="query" class="query-label">
+            Enter query
+            <input
+              class="query-input js-query-input"
+              type="text"
+              name="query"
+              id="query"
+              placeholder="Enter text..."
+            />
+          </label>
+
+          <p class="query-load js-query-load hide">Loading...</p>
+        </div>
+      </section>
       <section class="section">
         <div class="container">
-          <div class="widgets-list">
-            <div class="counter"></div>
-            <!-- <fieldset class="widgets-fieldset">
-              <legend>Clock</legend>
-              <span>2023:06:16 02:02:02</span>
-              <button class="button danger pointer">stop</button>
-            </fieldset>
-            <fieldset class="widgets-fieldset">
-              <legend>Timer</legend>
-              <span>12</span>
-              <button class="button success pointer">start</button>
-            </fieldset> -->
+          <div class="news-wrapper">
+            <ul class="news-list js-news-list"></ul>
           </div>
         </div>
       </section>
