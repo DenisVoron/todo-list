@@ -41,18 +41,37 @@ const onQueryChange = e => {
         .finally(hideLoader)
 };
 
-
-function throttle(callback, delay) {
-
+function debounce(callback, delay) {
     let timerId = 0;
+
     return function (e) {
-        if (timerId) return;
+        if (timerId) {
+            clearTimeout(timerId);
+        }
 
         timerId = setTimeout(() => {
-            callback(e)
+            callback(e);
             timerId = 0;
         }, delay);
     }
-};
+}
 
-ref.inputQuery.addEventListener('input', throttle(onQueryChange, 500));
+ref.inputQuery.addEventListener('input', debounce(onQueryChange, 1000));
+
+
+
+
+
+//=====================throttle
+// function throttle(callback, delay) {
+
+//     let timerId = 0;
+//     return function (e) {
+//         if (timerId) return;
+
+//         timerId = setTimeout(() => {
+//             callback(e)
+//             timerId = 0;
+//         }, delay);
+//     }
+// };

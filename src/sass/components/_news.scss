@@ -18,7 +18,8 @@
   background-color: var(--section-bg-cl);
 }
 
-.query-input:hover {
+.query-input:hover,
+.query-input:focus {
   border-color: var(--secondary-txt-cl);
 }
 
@@ -43,7 +44,6 @@
 .show {
   visibility: visible;
 }
-
 .hide {
   visibility: hidden;
 }

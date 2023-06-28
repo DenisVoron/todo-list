@@ -45,6 +45,11 @@
   color: var(--title-txt-cl);
 }
 
+.header-list__link:hover,
+.header-list__link:focus {
+  color: var(--secondary-txt-cl);
+}
+
 .header-list__link--current {
   border-bottom: 2px solid var(--secondary-txt-cl);
 }
