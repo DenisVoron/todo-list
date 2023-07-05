@@ -1,9 +1,10 @@
 import { v4 as uuidv4 } from 'uuid';
 import todoItemTemplate from "./template/todoItemTemplate.js";
-import mockDate from './mockDate.js';
+import * as apiTodo from "./todosApi.js";
+import { clearTextTodoImput } from "../js/todoForm.js";
 import instance from './modalAddTodo.js';
 
-let items = mockDate;
+let items = apiTodo.readTodos();
 
 const refForm = instance.element().querySelector('.form-todo');
 const refs = {
@@ -12,14 +13,14 @@ const refs = {
     todoItem: document.querySelector('.todo-item'),
 }
 
-const renderToDo = (items) => {
+const renderToDo = () => {
     const list = items.map(todoItemTemplate).join('');
 
     refs.todoList.innerHTML = '';
     refs.todoList.insertAdjacentHTML('afterbegin', list);
 };
 
-renderToDo(items);
+renderToDo();
 
 const addItems = (text) => {
     const newTodo = {
@@ -29,9 +30,12 @@ const addItems = (text) => {
         date: Date.now()
     }
 
-    items.unshift(newTodo);
+    apiTodo.createTodo(newTodo);
+    items = apiTodo.readTodos();
     instance.close();
-    renderToDo(items);
+    clearTextTodoImput();
+    renderToDo();
+
 }
 
 const onBtnAddTodoClick = e => {
@@ -44,25 +48,13 @@ const onBtnAddTodoClick = e => {
 refForm.addEventListener('submit', onBtnAddTodoClick);
 
 const deleteItemTodo = ({ id }) => {
-
-    for (const item of items) {
-        if (item.id === id) {
-            const indxEl = items.indexOf(item);
-            items.splice(indxEl, 1);
-        }
-    }
-
-    renderToDo(items);
+    apiTodo.removeTodo(id);
+    items = apiTodo.readTodos();
+    renderToDo();
 }
 
 const updateItemTodo = ({ id }) => {
-    items = items.map(item => item.id === id
-        ? {
-            ...item,
-            isDone: !item.isDone
-        }
-        : item
-    );
+    apiTodo.updateTodo(id);
 }
 
 const onBtnDeleteClick = (e) => {

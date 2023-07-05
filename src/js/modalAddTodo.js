@@ -1,4 +1,5 @@
 import * as basicLightbox from 'basiclightbox';
+// const basicLightbox = require('basiclightbox')
 
 const instance = basicLightbox.create(`
     <div class="modal">
@@ -9,19 +10,11 @@ const instance = basicLightbox.create(`
             </label>
             <button class="btn-form pointer" type="submit">Add Todo</button>
           </form>
-        <a></a>
-    </div>
-`, {
-    onShow: (instance) => {
-        instance.element().querySelector('a').onclick = instance.close
-    },
-})
-
-// const elem = instance.element();
+    </div>`,
+);
 
 const refBtnOpenModal = document.querySelector('.btn-add');
 
 refBtnOpenModal.addEventListener('click', () => instance.show());
-
 
 export default instance;
