@@ -1,4 +1,3 @@
-import items from './mockDate.js';
 import renderToDo from './todoList.js';
 
 const refs = {

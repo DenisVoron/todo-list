@@ -8,6 +8,15 @@ const instance = basicLightbox.create(`
               <span class="form-text">Enter text</span>
               <input type="text" name="text" class="form-input" />
             </label>
+            <label for="deadline">
+              <input
+                class="input-deadline js-input-deadline"
+                id="deadline"
+                type="text"
+                name="deadline"
+                placeholder="Enter deadline..."
+              />
+            </label>
             <button class="btn-form pointer" type="submit">Add Todo</button>
           </form>
     </div>`,
