@@ -9,7 +9,7 @@ import instance from './modalAddTodo.js';
 //style import
 import 'flatpickr/dist/flatpickr.min.css'
 
-let items = apiTodo.readTodos();
+let items = [];
 
 const refForm = instance.element().querySelector('.form-todo');
 const refInputDeadline = refForm.querySelector('.js-input-deadline');
@@ -17,6 +17,15 @@ const refs = {
     todoList: document.querySelector('.todo-list'),
     todoInput: document.querySelector('.form-input'),
     todoItem: document.querySelector('.todo-item'),
+    loader: document.querySelector('.js-loader'),
+}
+
+const showLoader = () => {
+    refs.loader.classList.add('show');
+}
+
+const hideLoader = () => {
+    refs.loader.classList.remove('show');
 }
 
 const renderToDo = () => {
@@ -25,8 +34,6 @@ const renderToDo = () => {
     refs.todoList.innerHTML = '';
     refs.todoList.insertAdjacentHTML('afterbegin', list);
 };
-
-renderToDo();
 
 const addItems = (text) => {
     const newTodo = {
@@ -38,11 +45,10 @@ const addItems = (text) => {
     }
 
     apiTodo.createTodo(newTodo);
-    items = apiTodo.readTodos();
+
+    updateRenderItems();
     instance.close();
     clearTextTodoImput();
-    renderToDo();
-
 }
 
 const onBtnAddTodoClick = e => {
@@ -52,12 +58,9 @@ const onBtnAddTodoClick = e => {
     text.value = '';
 }
 
-refForm.addEventListener('submit', onBtnAddTodoClick);
-
 const deleteItemTodo = ({ id }) => {
     apiTodo.removeTodo(id);
-    items = apiTodo.readTodos();
-    renderToDo();
+    updateRenderItems();
 }
 
 const updateItemTodo = ({ id }) => {
@@ -78,8 +81,18 @@ const onBtnDeleteClick = (e) => {
     }
 }
 
+
+function updateRenderItems() {
+    showLoader();
+    apiTodo.readTodos().then(data => {
+        items = data;
+    }).then(renderToDo).finally(() => hideLoader());
+}
+updateRenderItems();
+
 flatpickr(refInputDeadline);
 
+refForm.addEventListener('submit', onBtnAddTodoClick);
 refs.todoList.addEventListener('click', onBtnDeleteClick);
 
 export default renderToDo;

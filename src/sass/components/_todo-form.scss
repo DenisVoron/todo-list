@@ -54,11 +54,16 @@
 }
 
 .loader {
+  display: none;
   width: 55px;
   margin-top: 10px;
   margin-left: auto;
   margin-right: auto;
   color: var(--title-txt-cl);
+}
+
+.show {
+  display: block;
 }
 
 .filter-wrapper {
