@@ -28,7 +28,6 @@
   font-size: 18px;
   text-indent: 10px;
   color: var(--secondary-txt-cl);
-  // background-color: aliceblue;
 }
 
 .todo-timer {
@@ -38,10 +37,10 @@
 
 .button-delete {
   margin-left: auto;
-  padding: 5 20;
+  margin-right: 5px;
+  padding: 10 20;
   border-color: var(--border-cl-red);
   color: var(--border-cl-red);
-  // border: transparent;
+
   border-radius: 7px;
-  //   width: 50px;
 }

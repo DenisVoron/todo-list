@@ -1,6 +1,6 @@
-import { v4 as uuidv4 } from 'uuid';
 import flatpickr from "flatpickr";
 import moment from 'moment';
+import { Loading } from 'notiflix/build/notiflix-loading-aio';
 import todoItemTemplate from "./template/todoItemTemplate.js";
 import * as apiTodo from "./todosApi.js";
 import { clearTextTodoImput } from "../js/todoForm.js";
@@ -20,16 +20,18 @@ const refs = {
     loader: document.querySelector('.js-loader'),
 }
 
-const showLoader = () => {
-    refs.loader.classList.add('show');
-}
+// const showLoader = () => {
+//     refs.loader.classList.add('show');
+// }
 
-const hideLoader = () => {
-    refs.loader.classList.remove('show');
-}
+// const hideLoader = () => {
+//     refs.loader.classList.remove('show');
+// }
 
-const renderToDo = () => {
-    const list = items.map(todoItemTemplate).join('');
+
+const renderToDo = arrData => {
+    console.log(arrData)
+    const list = arrData.map(todoItemTemplate).join('');
 
     refs.todoList.innerHTML = '';
     refs.todoList.insertAdjacentHTML('afterbegin', list);
@@ -37,16 +39,16 @@ const renderToDo = () => {
 
 const addItems = (text) => {
     const newTodo = {
-        id: uuidv4(),
         text,
         isDone: false,
         date: Date.now(),
         deadline: moment(refInputDeadline.value).valueOf(),
     }
 
-    apiTodo.createTodo(newTodo);
+    apiTodo.createTodo(newTodo)
+        .then(() => updateRenderItems())
+        .catch(console.log);
 
-    updateRenderItems();
     instance.close();
     clearTextTodoImput();
 }
@@ -59,12 +61,16 @@ const onBtnAddTodoClick = e => {
 }
 
 const deleteItemTodo = ({ id }) => {
-    apiTodo.removeTodo(id);
-    updateRenderItems();
+    apiTodo.removeTodo(id)
+        .then(() => updateRenderItems())
+        .catch(console.log);
 }
 
 const updateItemTodo = ({ id }) => {
-    apiTodo.updateTodo(id);
+    const idx = items.findIndex(item => item.id === id);
+    items[idx].isDone = !items[idx].isDone
+
+    apiTodo.updateTodo(id, { isDone: items[idx].isDone });
 }
 
 const onBtnDeleteClick = (e) => {
@@ -81,13 +87,17 @@ const onBtnDeleteClick = (e) => {
     }
 }
 
-
 function updateRenderItems() {
-    showLoader();
+    // showLoader();
+    Loading.standard({ svgColor: '#2196f3' });
     apiTodo.readTodos().then(data => {
         items = data;
-    }).then(renderToDo).finally(() => hideLoader());
-}
+        renderToDo(data);
+
+    }).catch(console.log)
+        .finally(() => Loading.remove());
+};
+
 updateRenderItems();
 
 flatpickr(refInputDeadline);

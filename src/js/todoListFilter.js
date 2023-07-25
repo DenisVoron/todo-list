@@ -1,25 +1,24 @@
 import renderToDo from './todoList.js';
+import { readTodos } from "../js/todosApi.js";
+
+
+let filterValue;
+let items = [];
 
 const refs = {
     todoFilter: document.querySelector('.js-filter-input'),
     todoFilterSelector: document.querySelector('.js-filter-select'),
 }
 
-let filterValue;
-
 const onQueryInputFilter = (e) => {
 
     const queryValue = e.target.value;
-
     const todoFilter = items.filter(el => el.text.toLocaleLowerCase().includes(queryValue.toLocaleLowerCase()));
 
     renderToDo(todoFilter);
 
     filterValue = todoFilter;
 };
-
-refs.todoFilter.addEventListener('input', onQueryInputFilter);
-
 
 const onFilterSelectorChange = (e) => {
     const sortByValue = e.target.value;
@@ -54,4 +53,9 @@ const onFilterSelectorChange = (e) => {
     }
 }
 
+readTodos()
+    .then(data => items = data)
+    .catch(console.log);
+
+refs.todoFilter.addEventListener('input', onQueryInputFilter);
 refs.todoFilterSelector.addEventListener('change', onFilterSelectorChange);

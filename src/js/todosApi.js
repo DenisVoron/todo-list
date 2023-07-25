@@ -1,57 +1,41 @@
-const STORAGE_KEY = 'todo';
+import axios from 'axios';
+axios.defaults.baseURL = 'https://637d094a16c1b892ebc62efc.mockapi.io';
 
-export const createTodo = newTodo => {
 
-    readTodos().then(items => {
-        items.unshift(newTodo);
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
-    })
-};
-// export const readTodos = () => {
-//     let items = [];
-//     try {
-//         items = JSON.parse(localStorage.getItem(STORAGE_KEY));
+//================AXIOS ===================
+export const createTodo = newTodo => axios.post('/todos', newTodo);
 
-//     } catch (error) {
-//         console.log(error.message)
-//     }
-//     // return Promise.resolve(items || []);
-//     return items || [];
+export const readTodos = () => axios.get('/todos').then(({ data }) => data);
+
+export const updateTodo = (id, payload) => axios.put(`/todos/${id}`, payload);
+
+export const removeTodo = id => axios.delete(`/todos/${id}`);
+
+
+
+
+
+
+
+
+//=====================FETCH ====================
+// const URL = 'https://637d094a16c1b892ebc62efc.mockapi.io/todos';
+// export const createTodo = newTodo => {
+//     return fetch(URL, {
+//         method: 'POST',
+//         headers: { 'content-type': 'application/json' },
+//         body: JSON.stringify(newTodo)
+//     }).then(res => res.json());
 // };
 
-export const readTodos = () =>
-    new Promise((resolve, reject) => {
-        setTimeout(() => {
-            let items = [];
-            try {
-                items = JSON.parse(localStorage.getItem(STORAGE_KEY));
+// export const readTodos = () => fetch(URL).then(res => res.json());
 
-            } catch (error) {
-                console.log(error.message)
-            }
-            resolve(items || []);
-        }, 500);
-    })
+// export const updateTodo = (id, payload) => {
+//     return fetch(`${URL}/${id}`, {
+//         method: 'PUT',
+//         headers: { 'content-type': 'application/json' },
+//         body: JSON.stringify(payload)
+//     }).then(res => res.json());
+// };
 
-
-
-export const updateTodo = id => {
-
-    readTodos().then(items => {
-        items = items.map(item => item.id === id
-            ? {
-                ...item,
-                isDone: !item.isDone
-            }
-            : item
-        );
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
-    })
-};
-export const removeTodo = id => {
-
-    readTodos().then(items => {
-        items = items.filter(item => item.id !== id);
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
-    })
-};
+// export const removeTodo = id => fetch(`${URL}/${id}`, { method: 'DELETE', }).then(res => res.json());

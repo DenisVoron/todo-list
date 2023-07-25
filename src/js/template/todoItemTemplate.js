@@ -12,7 +12,7 @@ const todoItemTemplate = ({ id, text, isDone, date, deadline }) => {
               <p class="todo-timer">created:  ${createdAt}</p>
               <p class="todo-timer">deadline: ${endDate}</p>
             </div>
-           <button class="button-delete" type="button" data-action="delete">X</button>
+           <button class="button-delete pointer" type="button" data-action="delete">X</button>
         </li>`
 };
 
