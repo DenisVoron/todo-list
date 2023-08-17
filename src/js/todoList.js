@@ -30,7 +30,6 @@ const refs = {
 
 
 const renderToDo = arrData => {
-    console.log(arrData)
     const list = arrData.map(todoItemTemplate).join('');
 
     refs.todoList.innerHTML = '';
@@ -47,10 +46,14 @@ const addItems = (text) => {
 
     apiTodo.createTodo(newTodo)
         .then(() => updateRenderItems())
-        .catch(console.log);
+        .catch(console.log)
+        .finally(() => {
+            // instance.close();
+            clearTextTodoImput();
+        });
 
-    instance.close();
-    clearTextTodoImput();
+    // instance.close();
+    // clearTextTodoImput();
 }
 
 const onBtnAddTodoClick = e => {

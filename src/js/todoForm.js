@@ -9,7 +9,6 @@ const saveTextTodoImput = textValue => {
     }
 
     localStorage.setItem(TEXTINPUT_KEY, textValue);
-
 }
 
 const loadTextTodoImput = () => {
