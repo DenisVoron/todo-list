@@ -1,3 +1,8 @@
+.timer-field {
+  margin-left: 20px;
+  font-size: 25px;
+}
+
 .button {
   width: 50px;
   height: 25px;
@@ -6,11 +11,14 @@
 }
 
 .danger {
-  margin-left: auto;
   background-color: var(--border-cl-red);
 }
 
 .success {
   margin-left: auto;
   background-color: chartreuse;
+}
+
+.button.timer:not(:last-child) {
+  margin-right: 10px;
 }
